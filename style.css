@@ -1,0 +1,449 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#eef8fb;
+color:#083344;
+overflow-x:hidden;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+background:rgba(255,255,255,0.96);
+backdrop-filter:blur(10px);
+padding:10px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:52px;
+height:52px;
+object-fit:contain;
+border-radius:50%;
+}
+
+.logo span{
+font-size:28px;
+font-weight:800;
+color:#083344;
+text-transform:lowercase;
+}
+
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+font-weight:600;
+font-size:15px;
+color:#083344;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#0f766e;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 40px 80px;
+background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.45);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:1100px;
+}
+
+/* =========================
+TITRE PRINCIPAL
+========================= */
+
+.hero h1{
+font-size:30px;
+font-weight:700;
+line-height:1.7;
+max-width:1000px;
+margin:auto;
+margin-bottom:22px;
+text-align:center;
+color:white;
+letter-spacing:0.5px;
+text-shadow:
+0 3px 10px rgba(0,0,0,0.35);
+}
+
+/* =========================
+SOUS TITRE
+========================= */
+
+.hero h2{
+font-size:22px;
+line-height:1.9;
+max-width:980px;
+margin:auto;
+margin-bottom:45px;
+font-weight:400;
+text-align:justify;
+text-align-last:center;
+color:white;
+text-shadow:0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* =========================
+BOUTON HERO
+========================= */
+
+.hero a{
+display:inline-block;
+padding:18px 34px;
+background:#0f766e;
+color:white;
+text-decoration:none;
+border-radius:16px;
+font-weight:700;
+transition:0.3s;
+}
+
+.hero a:hover{
+background:#115e59;
+transform:translateY(-4px);
+}
+
+/* =========================
+TITRES SECTIONS
+========================= */
+
+.title{
+font-size:48px;
+padding:80px 40px 35px;
+color:#0f766e;
+font-weight:800;
+}
+
+/* =========================
+TEXTES JUSTIFIÉS
+========================= */
+
+p,
+.about-text,
+.content,
+.guide-card,
+.review-card{
+text-align:justify;
+}
+
+/* =========================
+CARTE
+========================= */
+
+#map{
+height:700px;
+margin:0 40px 80px;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* =========================
+RECHERCHE
+========================= */
+
+#search{
+margin:0 40px 35px;
+padding:18px;
+width:calc(100% - 80px);
+border:none;
+border-radius:16px;
+font-size:16px;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+outline:none;
+}
+
+/* =========================
+CARDS PLAGES
+========================= */
+
+#cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:28px;
+padding:0 40px 90px;
+}
+
+.card{
+background:white;
+border-radius:26px;
+overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.content{
+padding:22px;
+}
+
+.content h3{
+font-size:30px;
+margin-bottom:12px;
+color:#0f766e;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:18px 0;
+}
+
+.tag{
+background:#dff6f4;
+padding:8px 14px;
+border-radius:999px;
+font-size:14px;
+font-weight:600;
+}
+
+.info{
+display:grid;
+gap:12px;
+margin-top:20px;
+}
+
+.info div{
+background:#f8fafc;
+padding:14px;
+border-radius:14px;
+}
+
+/* =========================
+METEO
+========================= */
+
+.weather-text{
+padding:0 40px 30px;
+font-size:19px;
+line-height:1.8;
+}
+
+#weatherGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:22px;
+padding:0 40px 90px;
+}
+
+.weather-card{
+background:white;
+padding:28px;
+border-radius:22px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+GUIDE
+========================= */
+
+.guide-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:22px;
+padding:0 40px 90px;
+}
+
+.guide-card{
+background:white;
+padding:32px;
+border-radius:22px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+ABOUT
+========================= */
+
+.about-text{
+padding:0 40px 90px;
+font-size:20px;
+line-height:2;
+max-width:950px;
+}
+
+/* =========================
+AVIS
+========================= */
+
+.review-form{
+display:grid;
+gap:16px;
+padding:0 40px 40px;
+max-width:750px;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea{
+padding:18px;
+border:none;
+border-radius:16px;
+font-size:16px;
+background:white;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+outline:none;
+}
+
+.review-form textarea{
+height:160px;
+resize:none;
+}
+
+.review-form button{
+padding:18px;
+border:none;
+border-radius:16px;
+background:#0f766e;
+color:white;
+font-weight:700;
+font-size:16px;
+cursor:pointer;
+}
+
+.review-card{
+background:white;
+padding:28px;
+border-radius:22px;
+margin:0 40px 22px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+background:#042f2e;
+color:white;
+padding:50px 20px;
+text-align:center;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+header{
+flex-direction:column;
+gap:15px;
+padding:12px 18px;
+}
+
+.hero{
+padding:160px 20px 80px;
+}
+
+.hero h1{
+font-size:23px;
+line-height:1.8;
+}
+
+.hero h2{
+font-size:18px;
+line-height:1.8;
+}
+
+.title{
+font-size:38px;
+padding:60px 20px 30px;
+}
+
+#map{
+height:500px;
+margin:0 20px 60px;
+}
+
+#search{
+margin:0 20px 30px;
+width:calc(100% - 40px);
+}
+
+#cards,
+#weatherGrid,
+.guide-grid{
+padding-left:20px;
+padding-right:20px;
+}
+
+.about-text,
+.weather-text{
+padding-left:20px;
+padding-right:20px;
+}
+
+.review-form{
+padding-left:20px;
+padding-right:20px;
+}
+
+.review-card{
+margin-left:20px;
+margin-right:20px;
+}
+
+}

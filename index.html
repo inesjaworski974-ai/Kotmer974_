@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>kotmer974</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Kotmer974</title>
+
+<link
+rel="stylesheet"
+href="style.css"
+>
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+/>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<img
+src="https://i.ibb.co/qMnSnRqd/logokotmer974.png"
+>
+
+<span>kotmer974</span>
+
+</div>
+
+<nav>
+
+<a href="#accueil">Accueil</a>
+<a href="#carte">Carte</a>
+<a href="#plages">Plages</a>
+<a href="#meteo">Météo</a>
+<a href="#guide">Guide</a>
+<a href="#about">Qui sommes-nous</a>
+<a href="#avis">Avis</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="accueil">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>
+
+Découvrez les plus belles plages
+de l’île de La Réunion :
+lagons turquoise,
+spots de surf mythiques
+et couchers de soleil exceptionnels.
+
+</h1>
+
+<h2>
+
+Explorez le littoral réunionnais grâce à Kotmer974 :
+guide interactif des plages avec météo,
+sécurité baignade, itinéraires GPS précis,
+restaurants, surf et conseils pratiques.
+
+</h2>
+
+<a href="#plages">
+
+Découvrir les plages
+
+</a>
+
+</div>
+
+</section>
+
+<section id="carte">
+
+<h2 class="title">
+
+Carte interactive des plages
+
+</h2>
+
+<div id="map"></div>
+
+</section>
+
+<section id="plages">
+
+<h2 class="title">
+
+Plages de La Réunion
+
+</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Rechercher une plage..."
+>
+
+<div id="cards"></div>
+
+</section>
+
+<section id="meteo">
+
+<h2 class="title">
+
+Météo des plages
+
+</h2>
+
+<p class="weather-text">
+
+Prévisions météo sur 7 jours
+pour les plages de La Réunion.
+
+</p>
+
+<div id="weatherGrid"></div>
+
+</section>
+
+<section id="guide">
+
+<h2 class="title">
+
+Guide pratique
+
+</h2>
+
+<div class="guide-grid">
+
+<div class="guide-card">
+
+<h3>🦈 Vigilance requin</h3>
+
+<p>
+
+Respectez les zones surveillées
+et les recommandations officielles.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🏊 Zones surveillées</h3>
+
+<p>
+
+Privilégiez les lagons
+et bassins protégés.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🌊 Surf</h3>
+
+<p>
+
+Boucan Canot,
+Saint-Leu et Les Brisants
+sont les meilleurs spots.
+
+</p>
+
+</div>
+
+<div class="guide-card">
+
+<h3>🐢 Tortues marines</h3>
+
+<p>
+
+Certaines plages se situent
+près de zones protégées.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">
+
+Qui sommes-nous ?
+
+</h2>
+
+<p class="about-text">
+
+Kotmer974 est un guide indépendant
+des plages de La Réunion.
+
+Le site aide touristes et habitants
+à découvrir les meilleurs spots
+de baignade, surf et détente
+grâce à une carte interactive,
+des itinéraires GPS précis
+et des conseils pratiques.
+
+</p>
+
+</section>
+
+<section id="avis">
+
+<h2 class="title">
+
+Avis & expériences visiteurs
+
+</h2>
+
+<p class="about-text">
+
+Vos retours permettent d’aider
+les voyageurs et habitants
+à découvrir les meilleures plages
+de La Réunion.
+
+Merci de contribuer
+à la communauté Kotmer974 🌴
+
+</p>
+
+<div class="review-form">
+
+<input
+type="text"
+id="username"
+placeholder="Votre prénom"
+/>
+
+<select id="rating">
+
+<option value="5">★★★★★</option>
+<option value="4">★★★★☆</option>
+<option value="3">★★★☆☆</option>
+<option value="2">★★☆☆☆</option>
+<option value="1">★☆☆☆☆</option>
+
+</select>
+
+<textarea
+id="comment"
+placeholder="Votre commentaire"
+></textarea>
+
+<button onclick="addReview()">
+
+Publier
+
+</button>
+
+<select id="filterReviews">
+
+<option value="all">
+Tous les avis
+</option>
+
+<option value="5">
+★★★★★
+</option>
+
+<option value="4">
+★★★★☆
+</option>
+
+<option value="3">
+★★★☆☆
+</option>
+
+<option value="2">
+★★☆☆☆
+</option>
+
+<option value="1">
+★☆☆☆☆
+</option>
+
+</select>
+
+</div>
+
+<div id="reviewsList"></div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2025 Kotmer974
+
+</p>
+
+<p>
+
+Guide touristique des plages
+de La Réunion
+
+</p>
+
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
