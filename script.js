@@ -197,7 +197,7 @@ surf:"🌊 Surf : Faible",
 water:"🌡 Eau : 26°C",
 restaurant:"🍴 Restaurants : Peu",
 gps:"https://www.google.com/maps/search/?api=1&query=Manapany+La+Reunion"
-},
+}
 
 ];
 
@@ -368,49 +368,125 @@ displayBeaches(filtered);
 });
 
 /* =========================
-METEO
+METEO EN DIRECT
 ========================= */
 
 const weatherGrid =
 document.getElementById("weatherGrid");
 
-const weatherDays = [
+async function loadWeather(){
 
-["16/05/2026","☀️",28,23],
-["17/05/2026","🌤",27,22],
-["18/05/2026","☀️",29,23],
-["19/05/2026","🌦",26,22],
-["20/05/2026","☀️",28,23],
-["21/05/2026","🌤",27,22],
-["22/05/2026","☀️",29,24]
+if(!weatherGrid) return;
 
-];
+weatherGrid.innerHTML =
+"<p>Chargement météo...</p>";
 
-weatherDays.forEach(day=>{
+try{
+
+const response = await fetch(
+
+"https://api.open-meteo.com/v1/forecast?latitude=-21.1151&longitude=55.5364&daily=temperature_2m_max,temperature_2m_min,uv_index_max,sunrise,sunset&timezone=auto"
+
+);
+
+const data = await response.json();
+
+weatherGrid.innerHTML = "";
+
+for(let i = 0; i < 7; i++){
+
+const formattedDate =
+new Date(data.daily.time[i])
+.toLocaleDateString("fr-FR");
+
+const sunrise =
+new Date(data.daily.sunrise[i])
+.toLocaleTimeString(
+"fr-FR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+const sunset =
+new Date(data.daily.sunset[i])
+.toLocaleTimeString(
+"fr-FR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+);
 
 weatherGrid.innerHTML += `
 
 <div class="weather-card">
 
-<h3>${day[0]}</h3>
+<h3>${formattedDate}</h3>
 
-<p>${day[1]}</p>
+<p>
+🌡 Max :
+${data.daily.temperature_2m_max[i]}°C
+</p>
 
-<p>🌡 Max : ${day[2]}°C</p>
+<p>
+🌙 Min :
+${data.daily.temperature_2m_min[i]}°C
+</p>
 
-<p>🌙 Min : ${day[3]}°C</p>
+<p>
+☀️ UV :
+${data.daily.uv_index_max[i]}
+</p>
 
-<p>🌅 Lever soleil : 06h24</p>
+<p>
+🌅 Lever soleil :
+${sunrise}
+</p>
 
-<p>🌇 Coucher soleil : 17h48</p>
+<p>
+🌇 Coucher soleil :
+${sunset}
+</p>
 
-<p>🌊 Température eau : 27°C</p>
+<p>
+🌊 Température eau estimée :
+27°C
+</p>
 
 </div>
 
 `;
 
-});
+}
+
+}catch(error){
+
+console.error(error);
+
+weatherGrid.innerHTML =
+
+`
+
+<div class="weather-card">
+
+<p>
+
+Impossible de charger
+la météo en direct.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+loadWeather();
 
 /* =========================
 AVIS UTILISATEURS
@@ -525,4 +601,8 @@ card.style.display="none";
 
 });
 
+window.onload = () => {
+
 displayReviews();
+
+};
